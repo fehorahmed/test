@@ -41,11 +41,11 @@ class AdminController extends Controller
 
             }else{
                 Session::flash('message', 'Password is Incorrect');
-                return redirect('/login');
+                return redirect('/admin');
             }
         }else{
             Session::flash('message', 'email is not found');
-            return redirect('/login');
+            return redirect('/admin');
         }
 
 
@@ -60,7 +60,7 @@ class AdminController extends Controller
         session()->forget('admin_email');
         session()->forget('admin_name');
 
-        return redirect('/login');
+        return redirect('/admin');
     }
 
     public function create()

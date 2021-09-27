@@ -15,12 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/login',[AdminController::class,'index'])->name('login.index');
-Route::post('/login/auth',[AdminController::class,'auth'])->name('login.auth');
+Route::get('/admin',[AdminController::class,'index'])->name('admin.index');
+Route::post('/admin/auth',[AdminController::class,'auth'])->name('admin.auth');
 
-Route::group(['Middleware'=>'Admin_auth'],function(){
-    Route::get('/dashboard',[AdminController::class,'dashboard']);
+Route::group(['middleware'=>'Admin_auth'],function(){
 
-Route::get('/logout',[AdminController::class,'logout'])->name('admin.logout');
+   Route::get('/dashboard',[AdminController::class,'dashboard']);
+   Route::get('/admin/logout',[AdminController::class,'logout'])->name('admin.logout');
 
 });
